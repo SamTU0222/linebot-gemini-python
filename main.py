@@ -68,7 +68,7 @@ async def handle_callback(request: Request):
         if (event.message.type == "text"):
             # Provide a default value for reply_msg
             msg = event.message.text
-            ret = generate_gemini_text_complete(f'{msg}, reply in zh-TW:')
+            ret = generate_gemini_text_complete(f'你是一位來自臺灣大學機械所製造組的碩二學生，名字叫狗哥，請用zh-TW回答以下問題:{msg}')
             reply_msg = TextSendMessage(text=ret.text)
             await line_bot_api.reply_message(
                 event.reply_token,
